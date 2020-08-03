@@ -1,16 +1,17 @@
 
 class ActorModel {
-  constructor(brand, model, year, km) {
-      this.brand = brand;
-      this.model = model;
-      this.year = year;
-      this.km = km;
+  constructor(fname, lname, bday, image,imdb) {
+      this.fname = fname;
+      this.lname = lname;
+      this.bday = bday;
+      this.image = image;
+      this.imdb = imdb;
   }
 
-  kmPerYear() {
+  Age() {
       const currentYear = new Date().getFullYear();
-      const age = currentYear - this.year + 1;
-      return this.km / age;
+      const age = currentYear - this.bday + 1;
+      return age;
   }
 }
 

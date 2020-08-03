@@ -4,55 +4,57 @@ import {Container, Table} from 'react-bootstrap'
 
 function ActorView (props) {
 
-    const {cars} = props;
+    const {actors} = props;
 
 
-    function getHighestKMPerYear() {
-        let highestKmPerYear = cars[0];
-        for (let i = 1; i < cars.length; i++) {
-            if (cars[i].kmPerYear() > highestKmPerYear.kmPerYear()) {
-                highestKmPerYear = cars[i];
+    function getHighestAge() {
+        let highestAge = actors[0];
+        for (let i = 1; i < actors.length; i++) {
+            if (actors[i].Age() > highestAge.Age()) {
+                highestAge = actors[i];
             }
         }
-        return highestKmPerYear;
+        return highestAge;
     }
 
     
 
         let contentToRender;
-        if (cars && cars.length >= 1) {
-            // I have cars render a table with cars
-            let highestKmPerYear = getHighestKMPerYear();
+        if (actors && actors.length >= 1) {
+            // I have actors render a table with actors
+            let highestAge = getHighestAge();
 
-            const carTableRows = cars.map(car => 
-                <tr key={car} className={car === highestKmPerYear ? "bg-danger" : ""}>
-                    <td>{car.brand}</td>
-                    <td>{car.model}</td>
-                    <td>{car.km}</td>
-                    <td>{car.year}</td>
-                    <td>{parseInt(car.kmPerYear())}</td>
+            const actorTableRows = actors.map(actor => 
+                <tr key={actor} className={actor === highestAge ? "bg-danger" : ""}>
+                    <td>{actor.fname}</td>
+                    <td>{actor.lname}</td>
+                    <td>{actor.bday}</td>      
+                    <td>{actor.image}</td>
+                    <td>{actor.imdb}</td>
+                    <td>{parseInt(actor.Age())}</td>
                 </tr>);
 
             contentToRender =                 
                 <Table>
                     <thead>
                         <tr>
-                            <th>Brand</th>
-                            <th>Model</th>
-                            <th>KM</th>
-                            <th>Year</th>
-                            <th>Km Per Year</th>
+                            <th>First Name</th>
+                            <th>Last name</th>
+                            <th>Birthday</th>
+                            <th>Image</th>
+                            <th>IMDB</th>
+                            <th>Age</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {carTableRows}
+                        {actorTableRows}
                     </tbody>
                 </Table>
 
         } else {
-            // I don't have cars render a message
+            // I don't have actors render a message
             contentToRender = 
-                <p style={{textAlign: "center"}}>No Cars to Show</p>
+                <p style={{textAlign: "center"}}>No actors to Show</p>
         }
 
         return (
