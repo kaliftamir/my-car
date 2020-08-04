@@ -1,32 +1,31 @@
 import React from 'react';
 import {Container, Table} from 'react-bootstrap'
+// import ActorCard from './components/ActorsView/ActorCard.js';
 
 
-class ActorsView extends React.Component {
+function ActorsView (props) {
 
-    constructor(props) {
-        super(props);
-    }
+    const {cars} = props
 
 
-    getHighestKMPerYear() {
-        let highestKmPerYear = this.props.cars[0];
-        for (let i = 1; i < this.props.cars.length; i++) {
-            if (this.props.cars[i].kmPerYear() > highestKmPerYear.kmPerYear()) {
-                highestKmPerYear = this.props.cars[i];
+    function getHighestKMPerYear() {
+        let highestKmPerYear = cars[0];
+        for (let i = 1; i < cars.length; i++) {
+            if (cars[i].kmPerYear() > highestKmPerYear.kmPerYear()) {
+                highestKmPerYear = cars[i];
             }
         }
         return highestKmPerYear;
     }
 
-    render() {
+    
 
         let contentToRender;
-        if (this.props.cars && this.props.cars.length >= 1) {
+        if (cars && cars.length >= 1) {
             // I have cars render a table with cars
-            let highestKmPerYear = this.getHighestKMPerYear();
+            let highestKmPerYear = getHighestKMPerYear();
 
-            const carTableRows = this.props.cars.map(car =>
+            const carTableRows = cars.map(car =>
                 <tr className={car === highestKmPerYear ? "bg-danger" : ""}>
                     <td>{car.brand}</td>
                     <td>{car.model}</td>
@@ -62,7 +61,33 @@ class ActorsView extends React.Component {
                 {contentToRender}
             </Container>        
         );
-    }
+    
 }
+
+// function ActorsView (props) {
+
+//     const {src,title,text,numOfDots,position}=props; //detructuring assignment
+  
+//     return (
+  
+//       <div className="App">
+//         <div class="Item">
+//           <img src={src}/>
+//           <h4>{title}</h4>
+//           <p>{text}</p>
+//           <div>
+                   
+//             <ActorCard numOfDots={numOfDots} position={position}/>  
+  
+            
+//           </div>
+          
+//         </div>
+  
+//       </div>
+  
+//     )
+    
+//   };
 
 export default ActorsView;
