@@ -8,14 +8,13 @@ import ActorsView from './components/ActorsView/ActorsView.js';
 
 function App() {
 
-  const carsData = [];
-  carsData.push(new ActorModel("Toyota", "Yaris", 2002, 230000));
-  carsData.push(new ActorModel("Toyota", "Corola", 2015, 105000));
-  carsData.push(new ActorModel("Hyundai", "i30", 2010, 150000));
+  const actorsData = [];
+  actorsData.push(new ActorModel("Jedd", "Bridges", 1949 , "","https://www.imdb.com/name/nm0000313/?ref_=nv_sr_srsg_0"));
+  
 
   return (
     <div>
-      <ActorsView cars={carsData}/>
+      <ActorsView actors={actorsData}/>
     </div>
 
         // <div class="row">

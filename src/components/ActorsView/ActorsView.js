@@ -5,14 +5,14 @@ import {Container, Table} from 'react-bootstrap'
 
 function ActorsView (props) {
 
-    const {cars} = props
+    const {actors} = props
 
 
     function getHighestKMPerYear() {
-        let highestKmPerYear = cars[0];
-        for (let i = 1; i < cars.length; i++) {
-            if (cars[i].kmPerYear() > highestKmPerYear.kmPerYear()) {
-                highestKmPerYear = cars[i];
+        let highestKmPerYear = actors[0];
+        for (let i = 1; i < actors.length; i++) {
+            if (actors[i].kmPerYear() > highestKmPerYear.kmPerYear()) {
+                highestKmPerYear = actors[i];
             }
         }
         return highestKmPerYear;
@@ -21,11 +21,11 @@ function ActorsView (props) {
     
 
         let contentToRender;
-        if (cars && cars.length >= 1) {
-            // I have cars render a table with cars
+        if (actors && actors.length >= 1) {
+            // I have actors render a table with actors
             let highestKmPerYear = getHighestKMPerYear();
 
-            const carTableRows = cars.map(car =>
+            const carTableRows = actors.map(car =>
                 <tr className={car === highestKmPerYear ? "bg-danger" : ""}>
                     <td>{car.brand}</td>
                     <td>{car.model}</td>
@@ -51,9 +51,9 @@ function ActorsView (props) {
                 </Table>
 
         } else {
-            // I don't have cars render a message
+            // I don't have actors render a message
             contentToRender = 
-                <p style={{textAlign: "center"}}>No Cars to Show</p>
+                <p style={{textAlign: "center"}}>No actors to Show</p>
         }
 
         return (
