@@ -1,4 +1,5 @@
-class CarModel {
+
+class ActorModel {
   constructor(fname, lname,bday, img, imdb) {
       this.fname = fname;
       this.lname = lname;
@@ -7,11 +8,11 @@ class CarModel {
       this.imdb = imdb;
   }
 
-  kmPerYear() {
+  age() {
       const currentYear = new Date().getFullYear();
       const age = currentYear - this.bday + 1;
-      return this.km / age;
+      return age;
   }
 }
 
-export default CarModel;
+export default ActorModel;

@@ -1,27 +1,17 @@
 
-
-
 function ActorCard (props) {
 
-    const {numOfDots,position}=props; //detructuring assignment
-  
-    const dotsArr = [];
-      for (let i = 0; i <= numOfDots-1; i++) {
-        if(i===position) {
-          dotsArr.push(<div class="dot selected"></div>);
-  
-  
-        } else {
-          dotsArr.push(<div class="dot"></div>);
-  
-        }
-      }    
+    const {src,name,bday,imdb,age}=props; //detructuring assignment  
+    
   
     return (
-      <div className="Item">
+      <div class="card">      
   
-        <div className="Dots flex">{dotsArr}</div>  
-       
+        <img src={src}></img>
+        <h3>{name}</h3>
+        <p>{bday}</p>
+        <p>{age}</p>
+        <a href={imdb} target={"_blank"}>Imdb</a>      
   
       </div>  
   
