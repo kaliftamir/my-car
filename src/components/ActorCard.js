@@ -9,7 +9,7 @@ function ActorCard (props) {
     
   
     return (
-      <div class="card">      
+      <div className="card">      
   
         <img src={src}></img>
         <h3>{name}</h3>
