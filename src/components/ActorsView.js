@@ -57,8 +57,8 @@ function ActorsView (props) {
     (actor.fname.toLowerCase().startsWith(iname)
     || actor.lname.toLowerCase().startsWith(iname)) ?
 
-    <div class="col-lg-3 col-md-6">
-      <div class="card">
+    <div className="col-lg-3 col-md-6">
+      <div className="card">
                       
         <ActorCard src={actor.img} name={`${actor.fname} ${actor.lname}`} bday={actor.bday} imdb={actor.imdb} age={`Age: ${actor.age()}`}/>
 
@@ -69,10 +69,10 @@ function ActorsView (props) {
   
   return (
 
-    <div class="container">
+    <div className="container">
           <input value={iname} onChange={updateIname}></input>
           <button onClick={sortByName}>Sort</button>
-          <div class="row">
+          <div className="row">
 
              {actorsToRender} 
 
