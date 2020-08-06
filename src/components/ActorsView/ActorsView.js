@@ -1,6 +1,12 @@
 import React from 'react';
-import {Container, Table} from 'react-bootstrap'
-// import Actoractord from './components/ActorsView/Actoractord.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+
+import ActorModel from './data-model'
+import ActorCard from './components/ActorsView';
+// import axios from 'axios';
+
+
 
 function ActorsView (props) {
 

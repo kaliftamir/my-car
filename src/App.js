@@ -1,8 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ActorsView from './components/ActorsView';
 import './App.css';
-import ActorModel from './data-model/ActorModel'
-import ActorsView from './components/ActorsView/ActorsView.js';
 
 
 function App() {

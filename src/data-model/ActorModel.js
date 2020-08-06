@@ -1,3 +1,4 @@
+import React from 'react';
 
 class ActorModel {
   constructor(fname, lname,bday, img, imdb) {
