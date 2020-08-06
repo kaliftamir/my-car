@@ -1,10 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import ActorModel from '../data-model/ActorModel'
+import ActorCard from './ActorCard';
 
-import ActorModel from './data-model'
-import ActorCard from './components/ActorsView';
-// import axios from 'axios';
 
 
 
@@ -77,6 +75,5 @@ function ActorsView (props) {
     )
     
   };
-  
 
-export default ActorsView;
+  export default ActorsView;

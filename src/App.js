@@ -1,13 +1,14 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ActorsView from './components/ActorsView';
 import './App.css';
+import ActorsView from './components/ActorsView';
+
 
 
 function App() {
 
   return (
-<     div class="container">
+<     div className="container">
         <ActorsView/>
       </div>
   );
