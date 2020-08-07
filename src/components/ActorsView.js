@@ -1,6 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ActorModel from '../data-model/ActorModel'
+import { Accordion,Card,Button } from 'react-bootstrap';
+
 import ActorCard from './ActorCard';
 
 
@@ -62,6 +64,7 @@ function ActorsView (props) {
                       
         <ActorCard src={actor.img} name={`${actor.fname} ${actor.lname}`} bday={actor.bday} imdb={actor.imdb} age={`Age: ${actor.age()}`}/>
 
+      
       </div>
 
     </div>: <div></div>);
