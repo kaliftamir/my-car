@@ -15,20 +15,19 @@ function MoviesView (props) {
 
   const moviesData = [];
   moviesData.push(new MovieModel("Jeff", "Bridges", 1949 , "Jeff.jpg","https://www.imdb.com/name/nm0000313/?ref_=nv_sr_srsg_0"));
-  moviesData.push(new MovieModel("Laura", "Dern", 1967 , "laura.jpg","https://www.imdb.com/name/nm0000368/mediaviewer/rm4228886528?ref_=nm_ov_ph"));
-  moviesData.push(new MovieModel("John", "Turturro", 1957 , "john.jpg","https://www.imdb.com/name/nm0001806/?ref_=tt_cl_t15"));
-  moviesData.push(new MovieModel("Julianne", "Moore", 1951 , "juli.jpg","https://www.imdb.com/name/nm0000194/?ref_=tt_cl_t3"));
+  
 
   console.log(moviesData)
 
+  
 
   
-  const moviesToRender = 
+  const moviesToRender = moviesData.map(movie => 
 
     <div>
-      <div className="card">
+      <div>
                       
-        <MovieCard src={actor.img} name={`${actor.fname} ${actor.lname}`} bday={actor.bday} imdb={actor.imdb} age={`Age: ${actor.age()}`}/>
+        <MovieCard name={movie.name} length={movie.length} poster={movie.poster} director={movie.director} stars={movie.stars}/>
 
       
       </div>
@@ -39,8 +38,7 @@ function MoviesView (props) {
   return (
 
     <div className="container">
-          <input value={iname} onChange={updateIname}></input>
-          <button onClick={sortByName}>Sort</button>
+
           <div className="row">
 
              {moviesToRender} 
