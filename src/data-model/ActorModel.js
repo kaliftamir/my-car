@@ -1,7 +1,8 @@
-import React from 'react';
+// import React from 'react';
 
 class ActorModel {
-  constructor(fname, lname,bday, img, imdb) {
+  constructor(id,fname, lname,bday, img, imdb) {
+      this.id = id;
       this.fname = fname;
       this.lname = lname;
       this.bday = bday;

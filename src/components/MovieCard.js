@@ -21,7 +21,7 @@ function MovieCard (props) {
             <Accordion.Collapse eventKey="0">
               <Card.Body className="row">
                
-                <img className="col-lg-6" src={poster}></img>
+                <img className="col-lg-6" src={poster} alt="movie"></img>
                   
                 <div className="col-lg-6">
                     <p>{`Length: ${length}`}</p>

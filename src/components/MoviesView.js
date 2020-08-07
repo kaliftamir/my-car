@@ -9,14 +9,14 @@ import MovieCard from './MovieCard';
 
 function MoviesView (props) {
 
-  const {name,length,poster,director,stars}=props; //detructuring assignment
+ // const {name,length,poster,director,stars}=props; //detructuring assignment
 
   
 
   const moviesData = [];
-  moviesData.push(new MovieModel("The Big Lebowski", 120, "bl.jpg" , "Joel Coen",["John Goodman","Julianne Moore"]));
-  moviesData.push(new MovieModel("Hell or High Water", 102, "hhw.jpg" , "David Mackenzie",["Chris Pine","Marin Ireland"]));
-  moviesData.push(new MovieModel("Iron Man", 126, "im.jpg" , "Jon Favreau",["Robert Downey Jr.","naGwyneth Paltrowme"]));
+  moviesData.push(new MovieModel(1,"The Big Lebowski", 120, "bl.jpg" , "Joel Coen",["John Goodman","Julianne Moore"]));
+  moviesData.push(new MovieModel(2,"Hell or High Water", 102, "hhw.jpg" , "David Mackenzie",["Chris Pine","Marin Ireland"]));
+  moviesData.push(new MovieModel(3,"Iron Man", 126, "im.jpg" , "Jon Favreau",["Robert Downey Jr.","naGwyneth Paltrowme"]));
   
 
   console.log(moviesData)
@@ -26,7 +26,7 @@ function MoviesView (props) {
   
   const moviesToRender = moviesData.map(movie => 
 
-    <div className="col-lg-12 col-md-12">
+    <div key={movie.index} className="col-lg-12 col-md-12">
      
                       
       <MovieCard name={movie.name} length={movie.length} poster={movie.poster} director={movie.director} stars={movie.stars}/>

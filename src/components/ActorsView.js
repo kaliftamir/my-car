@@ -9,15 +9,15 @@ import ActorCard from './ActorCard';
 
 function ActorsView (props) {
 
-  const {src,name,bday,imdb,age}=props; //detructuring assignment
+  const {id,name,bday, img, imdb,age}=props; //detructuring assignment
 
   
 
   const actorsData = [];
-  actorsData.push(new ActorModel("Jeff", "Bridges", 1949 , "Jeff.jpg","https://www.imdb.com/name/nm0000313/?ref_=nv_sr_srsg_0"));
-  actorsData.push(new ActorModel("Laura", "Dern", 1967 , "laura.jpg","https://www.imdb.com/name/nm0000368/mediaviewer/rm4228886528?ref_=nm_ov_ph"));
-  actorsData.push(new ActorModel("John", "Turturro", 1957 , "john.jpg","https://www.imdb.com/name/nm0001806/?ref_=tt_cl_t15"));
-  actorsData.push(new ActorModel("Julianne", "Moore", 1951 , "juli.jpg","https://www.imdb.com/name/nm0000194/?ref_=tt_cl_t3"));
+  actorsData.push(new ActorModel(1,"Jeff", "Bridges", 1949 , "Jeff.jpg","https://www.imdb.com/name/nm0000313/?ref_=nv_sr_srsg_0"));
+  actorsData.push(new ActorModel(2,"Laura", "Dern", 1967 , "laura.jpg","https://www.imdb.com/name/nm0000368/mediaviewer/rm4228886528?ref_=nm_ov_ph"));
+  actorsData.push(new ActorModel(3,"John", "Turturro", 1957 , "john.jpg","https://www.imdb.com/name/nm0001806/?ref_=tt_cl_t15"));
+  actorsData.push(new ActorModel(4,"Julianne", "Moore", 1951 , "juli.jpg","https://www.imdb.com/name/nm0000194/?ref_=tt_cl_t3"));
 
   console.log(actorsData)
 
@@ -58,7 +58,7 @@ function ActorsView (props) {
     (actor.fname.toLowerCase().startsWith(iname)
     || actor.lname.toLowerCase().startsWith(iname)) ?
 
-    <div className="col-lg-3 col-md-6">
+    <div key={actor.id} className="col-lg-3 col-md-6">
       <div className="card">
                       
         <ActorCard src={actor.img} name={`${actor.fname} ${actor.lname}`} bday={actor.bday} imdb={actor.imdb} age={`Age: ${actor.age()}`}/>
