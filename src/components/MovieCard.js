@@ -13,16 +13,23 @@ function MovieCard (props) {
 
         <Accordion defaultActiveKey="0">
           <Card>
-            <Card.Header>
+            <Card.Header className="row col-lg-12">
               <Accordion.Toggle as={Button} variant="link" eventKey="0">
                {name}
               </Accordion.Toggle>
             </Card.Header>
             <Accordion.Collapse eventKey="0">
-              <Card.Body>
-                <p>{`Length: ${length}`}</p>
-                <img src={poster}></img>
-                <p>{stars}</p>
+              <Card.Body className="row">
+               
+                <img className="col-lg-6" src={poster}></img>
+                  
+                <div className="col-lg-6">
+                    <p>{`Length: ${length}`}</p>
+                    <p>{`Director: ${director}`}</p>
+                    <p>{`Stars: ${stars}`}</p>
+                                   
+                </div>
+ 
               </Card.Body>
             </Accordion.Collapse>
             </Card>

@@ -27,12 +27,10 @@ function MoviesView (props) {
   const moviesToRender = moviesData.map(movie => 
 
     <div className="col-lg-12 col-md-12">
-      <div className="card">
+     
                       
-        <MovieCard name={movie.name} length={movie.length} poster={movie.poster} director={movie.director} stars={movie.stars}/>
+      <MovieCard name={movie.name} length={movie.length} poster={movie.poster} director={movie.director} stars={movie.stars}/>
 
-      
-      </div>
 
     </div>);
   
