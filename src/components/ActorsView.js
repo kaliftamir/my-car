@@ -1,7 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ActorModel from '../data-model/ActorModel'
-import { Accordion,Card,Button } from 'react-bootstrap';
 
 import ActorCard from './ActorCard';
 
