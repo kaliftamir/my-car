@@ -14,9 +14,9 @@ function MoviesView (props) {
   
 
   const moviesData = [];
-  moviesData.push(new MovieModel("The Big Lebowski", 120, "bl.jpg" , "Joel Coen",["name1","name2"]));
-  moviesData.push(new MovieModel("The Big Lebowski", 120, "bl.jpg" , "Joel Coen",["name1","name2"]));
-  moviesData.push(new MovieModel("The Big Lebowski", 120, "bl.jpg" , "Joel Coen",["name1","name2"]));
+  moviesData.push(new MovieModel("The Big Lebowski", 120, "bl.jpg" , "Joel Coen",["John Goodman","Julianne Moore"]));
+  moviesData.push(new MovieModel("Hell or High Water", 102, "hhw.jpg" , "David Mackenzie",["Chris Pine","Marin Ireland"]));
+  moviesData.push(new MovieModel("Iron Man", 126, "im.jpg" , "Jon Favreau",["Robert Downey Jr.","naGwyneth Paltrowme"]));
   
 
   console.log(moviesData)
