@@ -11,7 +11,7 @@ function ActorCard (props) {
     return (
       <div className="card">      
   
-        <img src={src}></img>
+        <a href=""><img src={src}></img></a>
         <h3>{name}</h3>
         <p>{bday}</p>
         <p>{age}</p>
