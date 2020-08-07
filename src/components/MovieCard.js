@@ -6,32 +6,23 @@ import { Accordion,Card,Button } from 'react-bootstrap';
 
 function MovieCard (props) {
 
-    const {src,name,bday,imdb,age}=props; //detructuring assignment  
+    const {name,length,poster,director,stars}=props; //detructuring assignment  
     
   
     return (
-
-        
-    //   <div className="card">      
-  
-    //     <img src={src}></img>
-    //     <h3>{name}</h3>
-    //     <p>{bday}</p>
-    //     <p>{age}</p>
-    //     <a href={imdb} target={"_blank"}>Imdb</a>      
-  
-    //   </div>  
 
         <Accordion defaultActiveKey="0">
           <Card>
             <Card.Header>
               <Accordion.Toggle as={Button} variant="link" eventKey="0">
-               Movie1
+               {name}
               </Accordion.Toggle>
             </Card.Header>
             <Accordion.Collapse eventKey="0">
               <Card.Body>
-                Content1
+                <p>{`Length: ${length}`}</p>
+                <img src={poster}></img>
+                <p>{stars}</p>
               </Card.Body>
             </Accordion.Collapse>
             </Card>

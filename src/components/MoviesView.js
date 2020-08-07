@@ -14,7 +14,9 @@ function MoviesView (props) {
   
 
   const moviesData = [];
-  moviesData.push(new MovieModel("Jeff", "Bridges", 1949 , "Jeff.jpg","https://www.imdb.com/name/nm0000313/?ref_=nv_sr_srsg_0"));
+  moviesData.push(new MovieModel("The Big Lebowski", 120, "bl.jpg" , "Joel Coen",["name1","name2"]));
+  moviesData.push(new MovieModel("The Big Lebowski", 120, "bl.jpg" , "Joel Coen",["name1","name2"]));
+  moviesData.push(new MovieModel("The Big Lebowski", 120, "bl.jpg" , "Joel Coen",["name1","name2"]));
   
 
   console.log(moviesData)
@@ -24,8 +26,8 @@ function MoviesView (props) {
   
   const moviesToRender = moviesData.map(movie => 
 
-    <div>
-      <div>
+    <div className="col-lg-12 col-md-12">
+      <div className="card">
                       
         <MovieCard name={movie.name} length={movie.length} poster={movie.poster} director={movie.director} stars={movie.stars}/>
 
