@@ -81,6 +81,12 @@ function ActorsView (props) {
     
   }
  
+  function sortByName() {     
+     
+    setSortedData(true)
+    console.log(sortedData)      
+ }
+
 
   let sortedArr =  actorsData;
   if (sortedData===true) {
@@ -91,29 +97,31 @@ function ActorsView (props) {
      sortedArr = actorsData
   }
 
+  // let filtereddArr =  sortedArr.map(actor => 
+  //   (actor.fname.toLowerCase().startsWith(iname)
+  //   || actor.lname.toLowerCase().startsWith(iname)))
+  
 
-  function sortByName() {     
-     
-     setSortedData(true)
-     console.log(sortedData)      
-  }
 
   console.log(sortedData)
 
   
   const actorsToRender = sortedArr.map(actor => 
-    (actor===selectedActor) ?
+    (actor.fname.toLowerCase().startsWith(iname)
+    || actor.lname.toLowerCase().startsWith(iname)) ? 
 
-    <div key={actor.id} className="col-lg-3 col-md-6 selected">
-      <div className="card">
+    // (actor===selectedActor) ?
+
+    // <div key={actor.id} className="col-lg-3 col-md-6 selected">
+    //   <div className="card">
                       
-        <ActorCard id={id} src={actor.img} name={`${actor.fname} ${actor.lname}`} bday={actor.bday} imdb={actor.imdb} age={`Age: ${actor.age()}`}>
+    //     <ActorCard id={id} src={actor.img} name={`${actor.fname} ${actor.lname}`} bday={actor.bday} imdb={actor.imdb} age={`Age: ${actor.age()}`}>
          
-        </ActorCard>
+    //     </ActorCard>
       
-      </div>
+    //   </div>
 
-    </div> :
+    // </div> :
     <div key={actor.id} onClick={() => {actorChanged(actor)}} className="col-lg-3 col-md-6">
         <div className="card">
                         
@@ -123,7 +131,11 @@ function ActorsView (props) {
         
         </div>
   
-      </div>);
+      </div>
+      :
+      <div></div>
+      )
+
   
   
   return (

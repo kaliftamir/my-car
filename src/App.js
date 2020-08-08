@@ -10,7 +10,7 @@ import MoviesView from './components/MoviesView';
 function App(props) {
 
   const{selectedActor,actorChanged} = props
-  const [selectedActorIndex, setSelectedActorIndex] = React.useState(0);
+  const [selectedActorIndex, setSelectedActorIndex] = React.useState(1);
   
   function selectedActorChanged(event) {
     setSelectedActorIndex(event.id)  
@@ -22,7 +22,8 @@ function App(props) {
 
   return (
 <     div className="container">
-        <ActorsView selectedActor={setSelectedActorIndex} actorChanged={selectedActorIndex} actorChanged={selectedActorChanged}/> 
+        <ActorsView selectedActor={setSelectedActorIndex}
+         actorChanged={selectedActorChanged}/> 
         <MoviesView/>
 
       </div>
