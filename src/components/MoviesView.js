@@ -17,6 +17,9 @@ function MoviesView (props) {
   moviesData.push(new MovieModel(1,"The Big Lebowski", 120, "bl.jpg" , "Joel Coen",["John Goodman","Julianne Moore"]));
   moviesData.push(new MovieModel(2,"Hell or High Water", 102, "hhw.jpg" , "David Mackenzie",["Chris Pine","Marin Ireland"]));
   moviesData.push(new MovieModel(3,"Iron Man", 126, "im.jpg" , "Jon Favreau",["Robert Downey Jr.","naGwyneth Paltrowme"]));
+  moviesData.push(new MovieModel(4,"The Big Lebowski", 120, "bl.jpg" , "Joel Coen",["John Goodman","Julianne Moore"]));
+  moviesData.push(new MovieModel(5,"Hell or High Water", 102, "hhw.jpg" , "David Mackenzie",["Chris Pine","Marin Ireland"]));
+  moviesData.push(new MovieModel(6,"Iron Man", 126, "im.jpg" , "Jon Favreau",["Robert Downey Jr.","naGwyneth Paltrowme"]));
   
 
   console.log(moviesData)

@@ -7,11 +7,22 @@ import MoviesView from './components/MoviesView';
 
 
 
-function App() {
+function App(props) {
+
+  const{selectedActor,actorChanged} = props
+  const [selectedActorIndex, setSelectedActorIndex] = React.useState(1);
+  
+  function selectedActorChanged(event) {
+    setSelectedActorIndex(event)  
+    alert(event)  
+  }
+
+
+  
 
   return (
 <     div className="container">
-        <ActorsView/> 
+        <ActorsView selectedActor={1} actorChanged={selectedActorChanged}/> 
         <MoviesView/>
 
       </div>

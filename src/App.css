@@ -6,3 +6,8 @@
   cursor: 'pointer'
 }
 
+.card > img {
+
+  cursor: pointer;
+}
+
