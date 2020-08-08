@@ -11,3 +11,6 @@
   cursor: pointer;
 }
 
+.selected {
+  border: solid red;
+}

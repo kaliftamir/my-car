@@ -9,7 +9,7 @@ import ActorCard from './ActorCard';
 
 function ActorsView (props) {
 
-  const {id}=props; //detructuring assignment
+  const {id,selectedActor,actorChanged}=props; //detructuring assignment
 
   const JSONactors = [
     {
@@ -48,6 +48,7 @@ function ActorsView (props) {
 
   const actorsData = [];
   for (let i=0;i<=3;i++) {
+    
     actorsData.push(new ActorModel(JSONactors[i].id,JSONactors[i].fname,JSONactors[i].lname,JSONactors[i].bday,JSONactors[i].img,JSONactors[i].imdb))
 
   }
@@ -63,15 +64,15 @@ function ActorsView (props) {
 
   const [sortedData, setSortedData] = React.useState(false);
   const [iname, setIname] = React.useState("");
-  const [isSelected, setIsSelected] = React.useState(actorsData[0]);
+  //const [isSelected, setIsSelected] = React.useState(actorsData[0]);
   
-  console.log(`isSelected: ${isSelected.value}`)
-  function changeSelected(event) {
+  // console.log(`isSelected: ${isSelected.value}`)
+  // function changeSelected(event) {
 
-    console.log(`isSelected2: ${event.currentTarget.id}`)
-   // setIsSelected(actorsData[event])
+  //   console.log(`isSelected2: ${event.currentTarget.id}`)
+  //  // setIsSelected(actorsData[event])
     
-  }
+  // }
 
 
   function updateIname(event) {
@@ -101,19 +102,28 @@ function ActorsView (props) {
 
   
   const actorsToRender = sortedArr.map(actor => 
-    (actor.fname.toLowerCase().startsWith(iname)
-    || actor.lname.toLowerCase().startsWith(iname)) ?
+    (actor===selectedActor) ?
 
-    <div key={actor.id} className="col-lg-3 col-md-6">
+    <div key={actor.id} className="col-lg-3 col-md-6 selected">
       <div className="card">
                       
-        <ActorCard viewClick={changeSelected} id={id} src={actor.img} name={`${actor.fname} ${actor.lname}`} bday={actor.bday} imdb={actor.imdb} age={`Age: ${actor.age()}`}>
+        <ActorCard id={id} src={actor.img} name={`${actor.fname} ${actor.lname}`} bday={actor.bday} imdb={actor.imdb} age={`Age: ${actor.age()}`}>
          
         </ActorCard>
       
       </div>
 
-    </div>: <div></div>);
+    </div> :
+    <div key={actor.id} onClick={() => {actorChanged(actor)}} className="col-lg-3 col-md-6">
+        <div className="card">
+                        
+          <ActorCard id={id} src={actor.img} name={`${actor.fname} ${actor.lname}`} bday={actor.bday} imdb={actor.imdb} age={`Age: ${actor.age()}`}>
+           
+          </ActorCard>
+        
+        </div>
+  
+      </div>);
   
   
   return (
