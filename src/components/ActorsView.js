@@ -3,13 +3,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ActorModel from '../data-model/ActorModel'
 
 import ActorCard from './ActorCard';
+import MovieModel from '../data-model/MovieModel';
+import MovieCard from './MovieCard';
 
 
 
 
 function ActorsView (props) {
 
-  const {id,selectedActor,actorChanged}=props; //detructuring assignment
+  const {id}=props; //detructuring assignment
 
   const JSONactors = [
     {
@@ -97,13 +99,111 @@ function ActorsView (props) {
      sortedArr = actorsData
   }
 
-  // let filtereddArr =  sortedArr.map(actor => 
-  //   (actor.fname.toLowerCase().startsWith(iname)
-  //   || actor.lname.toLowerCase().startsWith(iname)))
+  // ----------------------------movies-----------------------------------------
+  
+  const moviesData = [];
+  
+  moviesData.push(new MovieModel(1,"The Big Lebowski", 120, "bl.jpg" , "Joel Coen",["John Goodman","Julianne Moore"]));
+  moviesData.push(new MovieModel(2,"Hell or High Water", 102, "hhw.jpg" , "David Mackenzie",["Chris Pine","Marin Ireland"]));
+  moviesData.push(new MovieModel(3,"Iron Man", 126, "im.jpg" , "Jon Favreau",["Robert Downey Jr.","naGwyneth Paltrowme"]));
+  moviesData.push(new MovieModel(4,"Marriage Story", 137, "ms.jpg" , "Noah Baumbach",["Adam Driver","Scarlett Johansson"]));
+  moviesData.push(new MovieModel(5,"Wild at Heart", 102, "wh.jpg" , "David Lynch",["Nicolas Cage","Willem Dafoe"]));
+  moviesData.push(new MovieModel(6,"Jurassic Park", 127, "jp.jpg" , "JSteven Spielberg",["Jeff Goldblum","Sam Neill"]));
+  moviesData.push(new MovieModel(7,"Raging Bull", 129, "rb.jpg" , "Martin Scorsese",["Robert Downey Jr.","naGwyneth Paltrowme"]));
+  moviesData.push(new MovieModel(8,"Transformers", 126, "t.jpg" , "Michael Bay",["Robert Downey Jr.","Gwyneth Paltrowme"]));
+  moviesData.push(new MovieModel(9,"Exodus", 150, "e.jpg" , "Ridley Scott",["Christian Bale","Joel Edgerton"]));
+  moviesData.push(new MovieModel(10,"The Hunger Games", 126, "hg.jpg" , "Jon Favreau",["Robert Downey Jr.","naGwyneth Paltrowme"]));
+  moviesData.push(new MovieModel(11,"Children of Men", 126, "cm.jpg" , "Jon Favreau",["Robert Downey Jr.","naGwyneth Paltrowme"]));
+  moviesData.push(new MovieModel(12,"Kingsman", 126, "km.jpg" , "Jon Favreau",["Robert Downey Jr.","naGwyneth Paltrowme"]));
+  
+  const [myData, setMyData] = React.useState([]);
+
+  let moviesToRender = myData.map(movie => 
+
+    <div key={movie.index} className="col-lg-12 col-md-12">
+     
+                      
+      <MovieCard name={movie.name}
+       length={movie.length} poster={movie.poster}
+       director={movie.director} stars={movie.stars}/>
+    
+    </div>);
+  
+  function actorClick (event) {
+    
+    let newArr;
+    if(event.id===1) { 
+
+      newArr=moviesData.slice(0, 3);
+
+    } else if (event.id===2) {
+
+      newArr=moviesData.slice(3, 6);
+
+    } else if (event.id===3) {
+
+      newArr=moviesData.slice(6, 9);
+      
+    } else if (event.id===4) {
+
+      newArr=moviesData.slice(9, 12);
+      
+    }
+     
+    setMyData(newArr) 
+       
+  }
+//------------------------------------------------------------------------------
+
+  // const [clickResult, setClickResult] = React.useState(1);
   
 
+  // // This function should be invoked each time clicking on Actor image
 
-  console.log(sortedData)
+  //  function tactorChanged (event) {
+  //    alert(event.id)
+
+  //    if (event.id===1) {
+
+  //       // Calling the TMDB API to get the result for the given searchText
+  //       const URL = "https://api.themoviedb.org/3/search/person?api_key=53d2ee2137cf3228aefae083c8158855&query=" + searchText;
+
+  //       axios.get(URL).then(response => {
+  //           this.setState({
+  //               searchResults: response.data.results
+  //           })    
+            
+  //       })
+
+  //     } else {
+  //         this.setState({
+  //             searchResults: []
+  //         })   
+  //   }
+
+  //  }
+
+  //  addActor(index) {
+
+  //   const actorName =  clickResults[index].name;
+  //   const actorImage = clickResults[index].profile_path
+
+
+  //   this.setState({
+  //       actors: this.state.actors.concat(new ActorModel(actorName, actorImage)),
+  //       searchResults: []
+  //   })
+  // }
+
+  // const actorsView = actors.map(actor => 
+  //   <Col lg={3} md={4} sm={6}>
+  //       <ActorCard actor={actor}/>
+  //   </Col>)
+
+  //-------------------------------------------------------------------------------------
+
+
+  
 
   
   const actorsToRender = sortedArr.map(actor => 
@@ -122,21 +222,26 @@ function ActorsView (props) {
     //   </div>
 
     // </div> :
-    <div key={actor.id} onClick={() => {actorChanged(actor)}} className="col-lg-3 col-md-6">
+
+    <div key={actor.id} onClick={() => {actorClick(actor)}}
+     className="col-lg-3 col-md-6">
+       
         <div className="card">
                         
-          <ActorCard id={id} src={actor.img} name={`${actor.fname} ${actor.lname}`} bday={actor.bday} imdb={actor.imdb} age={`Age: ${actor.age()}`}>
-           
-          </ActorCard>
+          <ActorCard id={id} src={actor.img}
+           name={`${actor.fname} ${actor.lname}`} bday={actor.bday}
+            imdb={actor.imdb} age={`Age: ${actor.age()}`}>           
+
+          </ActorCard>        
         
         </div>
+              
   
       </div>
       :
       <div></div>
       )
 
-  
   
   return (
 
@@ -148,7 +253,9 @@ function ActorsView (props) {
              {actorsToRender} 
 
           </div>
-          
+          <div className="row">
+            {moviesToRender}
+          </div>           
                                 
     </div>
 

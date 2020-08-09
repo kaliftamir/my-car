@@ -9,8 +9,14 @@
 .card > img {
 
   cursor: pointer;
+  height: fit-content;
+
 }
 
 .selected {
   border: solid red;
+}
+
+img {
+  height: fit-content;
 }

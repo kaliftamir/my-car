@@ -17,8 +17,8 @@ function MoviesView (props) {
   moviesData.push(new MovieModel(1,"The Big Lebowski", 120, "bl.jpg" , "Joel Coen",["John Goodman","Julianne Moore"]));
   moviesData.push(new MovieModel(2,"Hell or High Water", 102, "hhw.jpg" , "David Mackenzie",["Chris Pine","Marin Ireland"]));
   moviesData.push(new MovieModel(3,"Iron Man", 126, "im.jpg" , "Jon Favreau",["Robert Downey Jr.","naGwyneth Paltrowme"]));
-  moviesData.push(new MovieModel(4,"The Big Lebowski", 120, "bl.jpg" , "Joel Coen",["John Goodman","Julianne Moore"]));
-  moviesData.push(new MovieModel(5,"Hell or High Water", 102, "hhw.jpg" , "David Mackenzie",["Chris Pine","Marin Ireland"]));
+  moviesData.push(new MovieModel(4,"Marriage Story", 137, "ms.jpg" , "Noah Baumbach",["Adam Driver","Scarlett Johansson"]));
+  moviesData.push(new MovieModel(5,"Wild at Heart", 102, "hhw.jpg" , "David Lynch",["Nicolas Cage","Willem Dafoe"]));
   moviesData.push(new MovieModel(6,"Iron Man", 126, "im.jpg" , "Jon Favreau",["Robert Downey Jr.","naGwyneth Paltrowme"]));
   
 
@@ -32,7 +32,9 @@ function MoviesView (props) {
     <div key={movie.index} className="col-lg-12 col-md-12">
      
                       
-      <MovieCard name={movie.name} length={movie.length} poster={movie.poster} director={movie.director} stars={movie.stars}/>
+      <MovieCard name={movie.name}
+       length={movie.length} poster={movie.poster}
+       director={movie.director} stars={movie.stars}/>
 
 
     </div>);

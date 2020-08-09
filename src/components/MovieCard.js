@@ -18,7 +18,7 @@ function MovieCard (props) {
                {name}
               </Accordion.Toggle>
             </Card.Header>
-            <Accordion.Collapse eventKey="0">
+            <Accordion.Collapse eventKey="0" className="row col-lg-12">
               <Card.Body className="row">
                
                 <img className="col-lg-6" src={poster} alt="movie"></img>
